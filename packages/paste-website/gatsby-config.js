@@ -17,6 +17,7 @@ const gatsbyConfig = {
   plugins: [
     `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -171,6 +172,15 @@ const gatsbyConfig = {
         theme_color: `#f22f46`,
         display: `standalone`,
         icon: `static/favicon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia-docsearch`,
+      options: {
+        apiKey: process.env.DOCSEARCH_APIKEY,
+        indexName: 'twilio_paste',
+        inputSelector: '#search-input',
+        debug: true,
       },
     },
     {
