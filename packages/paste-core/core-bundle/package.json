@@ -21,8 +21,8 @@
     "build": "yarn clean && yarn compile",
     "build:dev": "yarn clean && yarn compile:dev",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo && rm -rf .rpt2_cache",
-    "compile": "rollup -c --environment NODE_ENV:production",
-    "compile:dev": "rollup -c --environment NODE_ENV:development",
+    "compile": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx'",
+    "compile:dev": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx'",
     "prepublishOnly": "yarn build",
     "type-check": "tsc --noEmit"
   },
@@ -87,6 +87,8 @@
     "@twilio-paste/style-props": "^1.5.3",
     "@twilio-paste/styling-library": "^0.1.2",
     "@twilio-paste/theme": "^3.2.16",
-    "@twilio-paste/types": "^3.0.19"
+    "@twilio-paste/types": "^3.0.19",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4"
   }
 }
