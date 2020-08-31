@@ -287,6 +287,9 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = () => {
           </SiteNavNestList>
         </SiteNavItem>
         <SiteNavItem>
+          <SiteNavItem>
+            <SiteNavAnchor to="/illustrations">Illustrations</SiteNavAnchor>
+          </SiteNavItem>
           <SiteNavButton onClick={() => setContentOpen(!contentOpen)} isOpen={contentOpen} aria-expanded={contentOpen}>
             Content
             <SiteNavAnchorArrow isOpen={contentOpen} />
