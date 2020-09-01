@@ -8,8 +8,17 @@ import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
 
 storiesOf('Forms|Checkbox', module)
   .add('Checkbox', () => {
+    const [checked, setChecked] = React.useState(false);
     return (
-      <Checkbox id={useUID()} value="1" name="foo">
+      <Checkbox
+        id={useUID()}
+        value="1"
+        name="foo"
+        checked={checked}
+        onChange={event => {
+          setChecked(event.target.checked);
+        }}
+      >
         Label
       </Checkbox>
     );
@@ -31,8 +40,18 @@ storiesOf('Forms|Checkbox', module)
     );
   })
   .add('Checkbox - Disabled', () => {
+    const [checked, setChecked] = React.useState(false);
     return (
-      <Checkbox id={useUID()} value="1" disabled name="foo">
+      <Checkbox
+        id={useUID()}
+        value="1"
+        disabled
+        name="foo"
+        checked={checked}
+        onChange={event => {
+          setChecked(event.target.checked);
+        }}
+      >
         Label
       </Checkbox>
     );
@@ -55,8 +74,18 @@ storiesOf('Forms|Checkbox', module)
     );
   })
   .add('Checkbox - Error', () => {
+    const [checked, setChecked] = React.useState(false);
     return (
-      <Checkbox id={useUID()} value="1" name="foo" hasError>
+      <Checkbox
+        id={useUID()}
+        value="1"
+        checked={checked}
+        name="foo"
+        onChange={event => {
+          setChecked(event.target.checked);
+        }}
+        hasError
+      >
         Label
       </Checkbox>
     );
@@ -79,13 +108,24 @@ storiesOf('Forms|Checkbox', module)
     );
   })
   .add('Checkbox - Help text string', () => {
+    const [checked, setChecked] = React.useState(false);
     return (
-      <Checkbox id={useUID()} value="1" name="foo" helpText="Some interesting help text">
+      <Checkbox
+        id={useUID()}
+        value="1"
+        name="foo"
+        helpText="Some interesting help text"
+        checked={checked}
+        onChange={event => {
+          setChecked(event.target.checked);
+        }}
+      >
         Label
       </Checkbox>
     );
   })
   .add('Checkbox - Help text children', () => {
+    const [checked, setChecked] = React.useState(false);
     return (
       <Checkbox
         id={useUID()}
@@ -96,6 +136,10 @@ storiesOf('Forms|Checkbox', module)
             Some interesting help text with a <a href="http://www.google.com">link</a>
           </>
         }
+        checked={checked}
+        onChange={event => {
+          setChecked(event.target.checked);
+        }}
       >
         Label
       </Checkbox>
@@ -176,36 +220,93 @@ storiesOf('Forms|Checkbox', module)
     );
   })
   .add('Checkbox Group - Error', () => {
+    const [checked1, setChecked1] = React.useState(true);
+    const [checked2, setChecked2] = React.useState(false);
+    const [checked3, setChecked3] = React.useState(true);
     return (
       <CheckboxGroup name="bar" legend="This is the legend text" errorText="This is the error text." required>
-        <Checkbox id={useUID()} value="1" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="1"
+          helpText="This is some help text."
+          checked={checked1}
+          onChange={event => {
+            setChecked1(event.currentTarget.checked);
+          }}
+        >
           First
         </Checkbox>
-        <Checkbox id={useUID()} value="2" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="2"
+          helpText="This is some help text."
+          checked={checked2}
+          onChange={event => {
+            setChecked2(event.currentTarget.checked);
+          }}
+        >
           Second
         </Checkbox>
-        <Checkbox id={useUID()} value="3" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="3"
+          helpText="This is some help text."
+          checked={checked3}
+          onChange={event => {
+            setChecked3(event.currentTarget.checked);
+          }}
+        >
           Third
         </Checkbox>
       </CheckboxGroup>
     );
   })
   .add('Checkbox Group - Disabled', () => {
+    const [checked1, setChecked1] = React.useState(true);
+    const [checked2, setChecked2] = React.useState(false);
+    const [checked3, setChecked3] = React.useState(true);
     return (
       <CheckboxGroup name="bar" legend="This is the legend text" required disabled>
-        <Checkbox id={useUID()} value="1" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="1"
+          helpText="This is some help text."
+          checked={checked1}
+          onChange={event => {
+            setChecked1(event.currentTarget.checked);
+          }}
+        >
           First
         </Checkbox>
-        <Checkbox id={useUID()} value="2" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="2"
+          helpText="This is some help text."
+          checked={checked2}
+          onChange={event => {
+            setChecked2(event.currentTarget.checked);
+          }}
+        >
           Second
         </Checkbox>
-        <Checkbox id={useUID()} value="3" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="3"
+          helpText="This is some help text."
+          checked={checked3}
+          onChange={event => {
+            setChecked3(event.currentTarget.checked);
+          }}
+        >
           Third
         </Checkbox>
       </CheckboxGroup>
     );
   })
   .add('Checkbox Group - Horizontal', () => {
+    const [checked1, setChecked1] = React.useState(true);
+    const [checked2, setChecked2] = React.useState(false);
+    const [checked3, setChecked3] = React.useState(true);
     return (
       <CheckboxGroup
         name="bar"
@@ -214,34 +315,90 @@ storiesOf('Forms|Checkbox', module)
         orientation="horizontal"
         required
       >
-        <Checkbox id={useUID()} value="1" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="1"
+          helpText="This is some help text."
+          checked={checked1}
+          onChange={event => {
+            setChecked1(event.currentTarget.checked);
+          }}
+        >
           First
         </Checkbox>
-        <Checkbox id={useUID()} value="2" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="2"
+          helpText="This is some help text."
+          checked={checked2}
+          onChange={event => {
+            setChecked2(event.currentTarget.checked);
+          }}
+        >
           Second
         </Checkbox>
-        <Checkbox id={useUID()} value="3" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="3"
+          helpText="This is some help text."
+          checked={checked3}
+          onChange={event => {
+            setChecked3(event.currentTarget.checked);
+          }}
+        >
           Third
         </Checkbox>
       </CheckboxGroup>
     );
   })
   .add('Checkbox Group - Horizontal disabled', () => {
+    const [checked1, setChecked1] = React.useState(true);
+    const [checked2, setChecked2] = React.useState(false);
+    const [checked3, setChecked3] = React.useState(true);
     return (
       <CheckboxGroup name="bar" legend="This is the legend text" orientation="horizontal" required disabled>
-        <Checkbox id={useUID()} value="1" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="1"
+          helpText="This is some help text."
+          checked={checked1}
+          onChange={event => {
+            setChecked1(event.currentTarget.checked);
+          }}
+        >
           First
         </Checkbox>
-        <Checkbox id={useUID()} value="2" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="2"
+          helpText="This is some help text."
+          checked={checked2}
+          onChange={event => {
+            setChecked2(event.currentTarget.checked);
+          }}
+        >
           Second
         </Checkbox>
-        <Checkbox id={useUID()} value="3" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="3"
+          helpText="This is some help text."
+          checked={checked3}
+          onChange={event => {
+            setChecked3(event.currentTarget.checked);
+          }}
+        >
           Third
         </Checkbox>
       </CheckboxGroup>
     );
   })
   .add('Checkbox Group - Horizontal error', () => {
+    const [checked1, setChecked1] = React.useState(true);
+    const [checked2, setChecked2] = React.useState(false);
+    const [checked3, setChecked3] = React.useState(true);
+    const [checked4, setChecked4] = React.useState(false);
+    const [checked5, setChecked5] = React.useState(true);
     return (
       <CheckboxGroup
         name="bar"
@@ -250,19 +407,59 @@ storiesOf('Forms|Checkbox', module)
         orientation="horizontal"
         required
       >
-        <Checkbox id={useUID()} value="1" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="1"
+          helpText="This is some help text."
+          checked={checked1}
+          onChange={event => {
+            setChecked1(event.currentTarget.checked);
+          }}
+        >
           First
         </Checkbox>
-        <Checkbox id={useUID()} value="2" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="2"
+          helpText="This is some help text."
+          checked={checked2}
+          onChange={event => {
+            setChecked2(event.currentTarget.checked);
+          }}
+        >
           Second
         </Checkbox>
-        <Checkbox id={useUID()} value="3" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="3"
+          helpText="This is some help text."
+          checked={checked3}
+          onChange={event => {
+            setChecked3(event.currentTarget.checked);
+          }}
+        >
           Third
         </Checkbox>
-        <Checkbox id={useUID()} value="4" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="4"
+          helpText="This is some help text."
+          checked={checked4}
+          onChange={event => {
+            setChecked4(event.currentTarget.checked);
+          }}
+        >
           Forth
         </Checkbox>
-        <Checkbox id={useUID()} value="5" helpText="This is some help text.">
+        <Checkbox
+          id={useUID()}
+          value="5"
+          helpText="This is some help text."
+          checked={checked5}
+          onChange={event => {
+            setChecked5(event.currentTarget.checked);
+          }}
+        >
           Fifth
         </Checkbox>
       </CheckboxGroup>
@@ -406,8 +603,17 @@ storiesOf('Forms|Checkbox', module)
     );
   })
   .add('Checkbox Disclaimer', () => {
+    const [checked, setChecked] = React.useState(false);
     return (
-      <CheckboxDisclaimer id={useUID()} value="foo" name="foo">
+      <CheckboxDisclaimer
+        id={useUID()}
+        value="foo"
+        name="foo"
+        checked={checked}
+        onChange={event => {
+          setChecked(event.currentTarget.checked);
+        }}
+      >
         <Text as="span">
           I declare the information provided above is accurate. I acknowledge that Twilio will process the information
           provided above for the purpose of identity verification, and will be sharing it with my local telecomm
@@ -418,8 +624,18 @@ storiesOf('Forms|Checkbox', module)
     );
   })
   .add('Checkbox Disclaimer - Error', () => {
+    const [checked, setChecked] = React.useState(false);
     return (
-      <CheckboxDisclaimer errorText="This is the error text." id={useUID()} value="foo" name="foo">
+      <CheckboxDisclaimer
+        errorText="This is the error text."
+        id={useUID()}
+        value="foo"
+        name="foo"
+        checked={checked}
+        onChange={event => {
+          setChecked(event.currentTarget.checked);
+        }}
+      >
         <Text as="span">
           I declare the information provided above is accurate. I acknowledge that Twilio will process the information
           provided above for the purpose of identity verification, and will be sharing it with my local telecomm
@@ -430,8 +646,18 @@ storiesOf('Forms|Checkbox', module)
     );
   })
   .add('Checkbox Disclaimer - Disabled', () => {
+    const [checked, setChecked] = React.useState(false);
     return (
-      <CheckboxDisclaimer disabled id={useUID()} value="foo" name="foo">
+      <CheckboxDisclaimer
+        disabled
+        id={useUID()}
+        value="foo"
+        name="foo"
+        checked={checked}
+        onChange={event => {
+          setChecked(event.currentTarget.checked);
+        }}
+      >
         I declare the information provided above is accurate. I acknowledge that Twilio will process the information
         provided above for the purpose of identity verification, and will be sharing it with my local telecomm providers
         or authorities where required by local law. I understand that Twilio phone numbers may be taken out of service
