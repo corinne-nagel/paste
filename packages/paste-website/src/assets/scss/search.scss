@@ -3,6 +3,10 @@
 .algolia-autocomplete {
   width: 100%;
 
+  .ds-dropdown-menu .ds-suggestion {
+    margin: $space-30 0;
+  }
+
   .algolia-docsearch-suggestion--category-header {
     border-bottom: 1px solid $color-border-light;
     color: $color-text-weak;
@@ -16,6 +20,7 @@
 
   .algolia-docsearch-suggestion--title {
     color: $color-text;
+    font-weight: $font-weight-semibold;
   }
 
   .algolia-docsearch-suggestion--highlight {
@@ -25,6 +30,12 @@
 
   .algolia-docsearch-suggestion {
     color: $color-text-link;
+
+    .algolia-docsearch-suggestion--subcategory-column {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 
   .algolia-docsearch-suggestion:hover {

@@ -180,7 +180,7 @@ const gatsbyConfig = {
         apiKey: process.env.DOCSEARCH_APIKEY,
         indexName: 'twilio_paste',
         inputSelector: '#search-input',
-        debug: true,
+        debug: false,
       },
     },
     {
