@@ -13,6 +13,7 @@ import {SiteBodyContext} from './SiteBodyContext';
 export const SiteHeader: React.FC = () => {
   const {isPasteTheme} = React.useContext(SiteBodyContext);
   const theme = useTheme();
+  const [value, setValue] = React.useState('');
   return (
     <Box
       as="aside"
@@ -33,7 +34,15 @@ export const SiteHeader: React.FC = () => {
         <Box marginTop="space0">
           <Stack orientation="horizontal" spacing="space60">
             <Box minWidth={['size30', 'size30', 'size30', 'size40']}>
-              <FormInput id="search-input" type="search" placeholder="Search..." />
+              <FormInput
+                id="search-input"
+                type="search"
+                placeholder="Search..."
+                value={value}
+                onChange={event => {
+                  setValue(event.target.value);
+                }}
+              />
             </Box>
             <ContactUsMenu />
             <Anchor href="https://www.github.com/twilio-labs/paste">
